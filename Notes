@@ -1,0 +1,155 @@
+| Location Name (AP)        | Trigger (Dead Cells)     |
+| ------------------------- | ------------------------ |
+| Concierge Defeated        | Concierge boss death     |
+| Conjunctivius Defeated    | Conjunctivius boss death |
+| Mama Tick Defeated        | Mama Tick boss death     |
+| Time Keeper Defeated      | Time Keeper boss death   |
+| Giant Defeated            | Giant boss death         |
+| Hand of the King Defeated | HoTK death               |
+
+
+
+Optional (can be toggleable later):
+Spoiler Boss
+Queen
+
+
+One check per run per boss
+Easy logic rules
+Easy to detect via scripts
+Avoids biome routing complexity
+
+🟢 Decision proposal:
+v0 = 6–7 boss locations only
+
+
+
+v0 Items
+We only randomize hard progression:
+
+Core items
+* Vine Rune
+* Teleport Rune
+* Ram Rune
+* Spider Rune
+
+Meta progression
+Boss Cell 1
+Boss Cell 2
+Boss Cell 3
+Boss Cell 4
+Boss Cell 5
+
+That’s 9 items total.
+
+Why these are ideal
+Already binary or numeric flags
+No inventory clutter
+No balance chaos
+Naturally understood by players
+
+
+
+Basic logic
+
+Early bosses require no runes
+Mid bosses require some runes
+Late bosses require all runes + BCs
+
+Rough draft:
+| Boss          | Required         |
+| ------------- | ---------------- |
+| Concierge     | nothing          |
+| Conjunctivius | Vine OR Teleport |
+| Mama Tick     | Teleport         |
+| Time Keeper   | Ram              |
+| Giant         | Spider           |
+| HoTK          | All runes + BC4  |
+
+
+
+
+Dead Cells Side – How This Actually Works
+This is the heart of the project.
+
+A. Communication Model (Locked Choice)
+✔ File-based bridge
+
+Dead Cells script:
+* Reads ap_items.json
+* Writes ap_locations.json
+
+External AP client:
+* Talks to Archipelago server
+* Updates these files
+
+
+
+
+B. Script Responsibilities (main.hx)
+The Dead Cells script will:
+On game start / level load
+* Read ap_items.json
+* For each unprocessed item:
+    - Apply effect
+    - Mark as processed (local state)
+
+On boss death:
+* Detect which boss died
+* Write location ID to ap_locations.json
+* Ensure one-time send per save
+
+C. Applying Items (Concrete)
+Runes
+Set appropriate progression flags
+Same flags the vanilla game uses
+Persist across runs
+Boss Cells
+Increase BC count
+Unlock difficulties automatically
+No Collector interaction needed
+
+D. Persistence
+We must store:
+Which AP items were already applied
+Which locations were already checked
+Options:
+File in mod folder (simplest)
+CDB flags (riskier across updates)
+
+🟢 Recommendation:
+v0 = simple JSON state file
+
+
+6️⃣ AP Side – Client + World
+AP World
+
+Defines:
+
+Locations = bosses
+
+Items = runes + BCs
+
+Logic rules
+
+AP Client (Bridge)
+
+Responsibilities:
+
+Connect to AP server
+
+When item received:
+
+Append to ap_items.json
+
+When location read:
+
+Send check to server
+
+This can be:
+
+Python
+
+Minimal UI
+
+Reusable later
