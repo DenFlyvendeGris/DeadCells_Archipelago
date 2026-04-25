@@ -12,14 +12,14 @@ from BaseClasses import Item, ItemClassification, Region, Tutorial
 from worlds.AutoWorld import World, WebWorld
 from dead_cells.Options import OptionError
 
-from .options import DeadCellsOptions, Goal
-from .items import (
+from .Options import DeadCellsOptions, Goal
+from .Items import (
     ALL_ITEMS, RUNE_ITEMS, BSC_ITEMS, SCROLL_ITEMS,
     BLUEPRINT_ITEMS, DLC_BLUEPRINT_ITEMS, FILLER_ITEMS, TRAP_ITEMS,
     DeadCellsItemData,
 )
-from .locations import ALL_LOCATIONS, DeadCellsLocationData
-from .rules import set_rules
+from .Locations import ALL_LOCATIONS, DeadCellsLocationData
+from .Rules import set_rules
 
 
 # ── Item and Location classes ─────────────────────────────────────────────────
