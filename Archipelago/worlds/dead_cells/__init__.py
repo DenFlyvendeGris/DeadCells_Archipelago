@@ -24,7 +24,7 @@ from .Rules import set_rules
 # ── Item and Location classes ─────────────────────────────────────────────────
 
 class DeadCellsItem(Item):
-    game = "Dead Cells"
+    game = "dead_cells"
 
 
 class DeadCellsLocation:

@@ -126,15 +126,15 @@ class TrapPercentage(Range):
 class StartingWeapon(Choice):
     """Determines the weapon the player starts each run with.
 
-    - **random**: A random weapon is chosen at the start of each run,
-      drawn from whichever blueprints have been received so far.
-    - **fixed**: The player always starts with the base Rusty Sword,
+    - **any**: A random weapon is chosen from whichever blueprints
+      have been received so far.
+    - **rusty_sword**: The player always starts with the base Rusty Sword,
       regardless of received blueprints.
     """
     display_name = "Starting weapon"
     rich_text_doc = True
-    option_random = 0
-    option_fixed = 1
+    option_any = 0
+    option_rusty_sword = 1
     default = 0
 
 
