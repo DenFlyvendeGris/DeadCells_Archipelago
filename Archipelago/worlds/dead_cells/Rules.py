@@ -162,3 +162,7 @@ LOCATION_ID_TO_NAME: Dict[int, str] = {
     for name, data in ALL_LOCATIONS.items()
     if data.code is not None
 }
+
+
+def set_rules():
+    return None
