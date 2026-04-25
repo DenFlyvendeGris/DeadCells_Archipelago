@@ -3,22 +3,22 @@ Dead Cells APWorld — __init__.py
 
 Main world class. Archipelago loads this file automatically.
 All generation logic is orchestrated from here; the heavy data
-lives in items.py, locations.py, regions.py, rulesHelperFile.py, and options.py.
+lives in items.py, locations.py, regions.py, rulesHelperFile.py, and deadCellsOptions.py.
 """
 
 from typing import Dict, Any, List
 
 from BaseClasses import Item, ItemClassification, Region, Tutorial
 from worlds.AutoWorld import World, WebWorld
-from Options import OptionError
-from .Options import DeadCellsOptions, Goal
-from .Items import (
+from deadCellsOptions import OptionError
+from .deadCellsOptions import DeadCellsOptions, Goal
+from .items import (
     ALL_ITEMS, RUNE_ITEMS, BSC_ITEMS, SCROLL_ITEMS,
     BLUEPRINT_ITEMS, DLC_BLUEPRINT_ITEMS, FILLER_ITEMS, TRAP_ITEMS,
     DeadCellsItemData,
 )
-from .Locations import ALL_LOCATIONS, DeadCellsLocationData
-from .Rules import set_rules
+from .locations import ALL_LOCATIONS, DeadCellsLocationData
+from .rules import set_rules
 
 
 # ── Item and Location classes ─────────────────────────────────────────────────

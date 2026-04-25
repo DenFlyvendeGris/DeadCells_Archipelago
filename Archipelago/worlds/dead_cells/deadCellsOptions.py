@@ -1,5 +1,5 @@
 """
-Dead Cells APWorld — options.py
+Dead Cells APWorld — deadCellsOptions.py
 
 All player-configurable YAML options are defined here.
 Each class maps to one option in the player's YAML file.
@@ -8,7 +8,7 @@ assigned to the World via options_dataclass.
 """
 
 from dataclasses import dataclass
-from Options import Choice, DefaultOnToggle, Range, Toggle, PerGameCommonOptions
+from deadCellsOptions import Choice, DefaultOnToggle, Range, Toggle, PerGameCommonOptions
 
 
 # ── Goal ──────────────────────────────────────────────────────────────────────

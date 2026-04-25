@@ -11,6 +11,7 @@ ID base: 45_100_000
 """
 
 from typing import Dict, NamedTuple, Optional
+from .deadCellsOptions import DeadCellsOptions, Goal
 
 
 class DeadCellsLocationData(NamedTuple):
