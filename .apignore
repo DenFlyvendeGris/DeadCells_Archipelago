@@ -1,0 +1,6 @@
+//Something to do with ignoring specific files from Zip for AP builder
+
+*.md
+.gitignore
+.apignore
+__pycache__

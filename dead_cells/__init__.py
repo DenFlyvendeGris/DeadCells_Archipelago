@@ -10,7 +10,7 @@ from typing import Dict, Any, List
 
 from BaseClasses import Item, ItemClassification, Region, Tutorial
 from worlds.AutoWorld import World, WebWorld
-from Options import OptionError
+from dead_cells.Options import OptionError
 
 from .options import DeadCellsOptions, Goal
 from .items import (
