@@ -1,9 +1,0 @@
-
-
-# Zip the dead_cells/ folder into a .apworld file
-cd dead-cells-archipelago
-zip -r dead_cells.apworld dead_cells/
-
-# Copy it into your Archipelago installation
-cp dead_cells.apworld "C:/ProgramData/Archipelago/lib/worlds/"
-# (path varies by OS)
